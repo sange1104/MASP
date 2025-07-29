@@ -11,13 +11,15 @@ Understanding human emotions from an image is a challenging yet essential task f
 
 ## 📁 Project Structure
 ```
-masp/
-├── models/ # MASP model definitions 
-├── data/ # Data loading and preprocessing
-├── training/ # Training scripts and configs
-├── evaluation/ # Evaluation code
-├── prompts/ # Aspect prompts and emotion queries
-├── utils/
+MASP/
+├── config.yaml # Configuration file
+├── data_utils.py # Data loading and preprocessing utilities
+├── evaluate.py # Evaluation script
+├── prompt_utils.py # Prompt generation and processing utilities
+├── prompts.txt # List of emotion prompts
+├── requirements.txt # Python package dependencies
+├── softprompt_model.py # MASP model and soft prompt architecture
+├── train.py # Training script
 └── README.md
 ```
 
@@ -33,12 +35,19 @@ pip install -r requirements.txt
 You can start training MASP using the following command:
 
 ```bash
-python train.py --config configs/emoset.yaml
+python train.py \ 
+  --your_datapath /path/to/your/dataset \
+  --dataname EmoSet \
+  --save_ckpt /path/to/save/softprompt_ckpt.pth
 ```
 
 
 ## 📈 Evaluation
 ```bash 
-python evaluate.py --checkpoint checkpoints/masp_emoset.pt
+python evaluate.py \ 
+  --your_datapath /path/to/your/dataset \
+  --dataname EmoSet \
+  --load_ckpt /path/to/your/softprompt_ckpt.pth \
+  --load_spmodel_ckpt /path/to/your/model_ckpt.pth \
 ```
 
