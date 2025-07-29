@@ -421,12 +421,13 @@ def initialize_and_load_softprompt_model(model, processor, ckpt_path):
     spmodel = SoftPromptEmotionModel(model, processor, stage="stage2").to(torch.device('cuda'))
     embedding = spmodel.vlm.get_input_embeddings()
     embedding.weight.requires_grad = True
-
-    ckpt = torch.load(ckpt_path)
-    for k in spmodel.q_view:
-        spmodel.q_view[k].data.copy_(ckpt["q_view"][k].to(spmodel.q_view[k].device))
-    for k in spmodel.cross_attn:
-        spmodel.cross_attn[k].load_state_dict(ckpt["cross_attn"][k])
+    
+    if ckpt_path is not None:
+        ckpt = torch.load(ckpt_path)
+        for k in spmodel.q_view:
+            spmodel.q_view[k].data.copy_(ckpt["q_view"][k].to(spmodel.q_view[k].device))
+        for k in spmodel.cross_attn:
+            spmodel.cross_attn[k].load_state_dict(ckpt["cross_attn"][k])
     return spmodel
 
 def save_soft_prompt_embeddings(model, processor, prefix_token_ids, num_special_tokens_in_prefix, save_ckpt):
