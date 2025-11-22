@@ -8,22 +8,8 @@ Understanding human emotions from an image is a challenging yet essential task f
 <p align="center">
   <img src="assets/masp_architecture.jpg" alt="MASP Architecture" width="900">
 </p> 
-
-## 📁 Project Structure
-```
-MASP/
-├── config.yaml # Configuration file
-├── data_utils.py # Data loading and preprocessing utilities
-├── evaluate.py # Evaluation script
-├── prompt_utils.py # Prompt generation and processing utilities
-├── prompts.txt # List of emotion prompts
-├── requirements.txt # Python package dependencies
-├── softprompt_model.py # MASP model and soft prompt architecture
-├── train.py # Training script
-└── README.md
-```
-
-
+ 
+ 
 ## 📦 Setup 
 ```bash
 git clone https://github.com/{id}/masp.git
@@ -31,23 +17,87 @@ cd masp
 pip install -r requirements.txt
 ```
 
-## 🧪 Training
-You can start training MASP using the following command:
+## 📂 Dataset Structure
+
+The project assumes the following dataset directory layout.
+
+Example: EmoSet
 
 ```bash
-python train.py \ 
-  --your_datapath /path/to/your/dataset \
-  --dataname EmoSet \
-  --save_ckpt /path/to/save/softprompt_ckpt.pth
+emoset
+├── train
+    ├── ...
+├── test
+│   ├── amusement
+    ├── ...
+└── annotation
+    ├── amusement
+    ├── ...
 ```
+
+- Each emotion label corresponds to a subfolder.
+
+- For datasets including annotation files (e.g., EmoSet), JSON files should follow the same hierarchy as the images. Other datasets (e.g., Emotion6) do not include an annotation folder — they only contain train/ and test/ splits.
+
+- Update the root dataset path in config/train.yaml and config/eval.yaml before running training or evaluation.
+
+
+## 🧪 Training
+
+MASP training consists of two stages. Both stages share the same configuration file — modify dataset paths, hyperparameters, and training options in config/train.yaml before running.
+
+1. Stage 1 — learn query vectors & cross-attention
+
+Trains the query vectors and cross-attention modules to extract view-specific information from images. After training, the learned weights are saved and later loaded during Stage 2.
+
+```bash
+python main.py --stage stage1
+```
+
+
+2. Stage 2 — learn soft prompts
+
+Loads the weights from Stage 1 and freezes them. Trains only the soft prompt for emotion prediction. After training, the checkpoint for the soft prompt is saved.
+
+```bash
+python main.py --stage stage2
+```
+All configurations can be modified in config/train.yaml.
 
 
 ## 📈 Evaluation
-```bash 
-python evaluate.py \ 
-  --your_datapath /path/to/your/dataset \
-  --dataname EmoSet \
-  --load_ckpt /path/to/your/softprompt_ckpt.pth \
-  --load_spmodel_ckpt /path/to/your/model_ckpt.pth \
+
+We provide pretrained checkpoints for simple reproduction of this method: [google drive](https://drive.google.com/drive/folders/1blXWP2I876a3wfLzyEZC_YXsFXWg0uiy?usp=sharing), or you can train the model from scratch.
+
+| Component | File | Notes |
+|----------|------|-------|
+| Stage 1 — Aspect Module | aspect.pth | Query vectors + cross-attention |
+| Stage 2 — Soft Prompt | soft_prompt_emotion6.pt | Trained soft prompt (Emotion6 only) |
+
+After downloading, place them like this:
+
+```
+outputs
+├── stage1
+│   └── aspect.pth
+└── stage2
+    └── soft_prompt_emotion6.pt
 ```
 
+Update checkpoint paths in the config:
+
+```yaml
+checkpoint:
+  ckpt_path: "../outputs/stage1/aspect.pth"
+  soft_prompt_path: "../outputs/stage2_train/soft_prompt_emotion6.pt"
+```
+
+Run the final evaluation of emotion recognition performance using the command below:
+
+```bash
+cd src
+python evaluate.py
+```
+
+This script loads the trained Stage 2 MASP model and reports accuracy.
+All configurations can be adjusted in config/eval.yaml.
