@@ -1,7 +1,7 @@
 stage2:
   model_name: "Qwen/Qwen2-VL-7B-Instruct"
   dataname: "Emotion6"
-  test_data_path: "/sdc/vissent/data/Emotion6"
+  test_data_path: "" # your data directory path
   ckpt_path: "../outputs/stage1_train/aspect.pth"      # q_view + cross_attn
   prefix_ckpt_path: "../outputs/stage2_train/emotion6_74.pt"  # trained soft prompt
   prompt_json_path: "../config/prompts/prompts.json" 
