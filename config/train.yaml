@@ -36,7 +36,7 @@ stage1:
 stage2:
   train_data_path: "" # <- your data directory path
   ckpt_path: "outputs/stage1_train/aspect.pth" # <- your aspect module weight path
-  dataname: "FI"
+  dataname: "" # <- name of training data (ex. EmoSet, FI, Emotion6 ...)
   num_train_epochs: 1                   
   learning_rate: 5.0e-6                  
   output_dir: "outputs/stage2_train"
