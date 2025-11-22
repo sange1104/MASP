@@ -1,0 +1,43 @@
+common:
+  model_name: "Qwen/Qwen2-VL-7B-Instruct"
+  prompt_json_path: "config/prompts/prompts.json"
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 1
+  warmup_ratio: 0.03                      
+  fp16: false
+  bf16: true
+  logging_steps: 16
+  optim: "adamw_8bit"
+  weight_decay: 0.01                       
+  lr_scheduler_type: "linear"
+  seed: 3407
+  save_strategy: "no"
+  gradient_checkpointing: true
+  dataset_text_field: ""
+  dataset_kwargs:
+    skip_prepare_dataset: true
+  remove_unused_columns: false
+  num_special_tokens_in_prefix: 32
+  VIEW_NAMES:
+    - facial_expression
+    - object
+    - scene
+    - human_action
+    - brightness
+    - colorfulness
+ 
+stage1:
+  aspect_data_path: "/nvme0n1/EmoSet" # <- your data directory path
+  num_train_epochs: 3
+  learning_rate: 1.0e-5                 
+  output_dir: "outputs/stage2_train"  
+  output_path: "outputs/stage2_train/aspect.pth" 
+
+stage2:
+  train_data_path: "/sdc/vissent/data/FI" # <- your data directory path
+  ckpt_path: "outputs/stage1_train/aspect.pth" # <- your aspect module weight path
+  dataname: "FI"
+  num_train_epochs: 1                   
+  learning_rate: 5.0e-6                  
+  output_dir: "outputs/stage2_train"
+  output_path: "outputs/stage2_train/soft_prompt.pt"  

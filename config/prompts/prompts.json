@@ -1,0 +1,92 @@
+{
+    "brightness": [
+        "Assess the overall brightness of the image. Choose from: very low, low, moderate, high, very high.",
+        "How much light is present in the image? Select one of the following: very low, low, moderate, high, very high.",
+        "Evaluate the image in terms of brightness. Provide a short answer.",
+        "Look at the lighting—how bright is the scene? Choose one level: very low, low, moderate, high, or very high.",
+        "Describe the overall illumination of the image. Use one of the given brightness levels.",
+        "Based on visual appearance, how would you rate the image's brightness? ex. very low, low, moderate, high, or very high.",
+        "What is the perceived brightness of the scene shown? Use one of the standard levels (very low to very high).",
+        "From the lighting cues, how would you describe the brightness of the image? ex) very low, low, moderate, high, or very high.",
+        "Describe how bright or dim the image appears overall."
+    ],
+
+    "colorfulness": [
+        "How colorful is the image overall? Choose from: very low, low, moderate, high, very high.",
+        "Evaluate the color intensity of the image. Select one of the following: very low, low, moderate, high, very high.",
+        "Describe the image’s level of colorfulness. Keep it short.",
+        "Looking at the colors, how vibrant is the image? Pick one level (very low, low, moderate, high, very high) and answer.",
+        "What is the overall impression of color richness in the image?",
+        "Based on visual appearance, rate the image’s colorfulness. Choose from the predefined options: very low, low, moderate, high, very high.",
+        "What is the dominant level of colorfulness in this scene?",
+        "From the color palette and saturation, how would you describe the image’s colorfulness? ex. very low, low, moderate, high, very high.",
+        "Briefly assess how colorful the image is. ex) very low, low, moderate, high, very high."
+    ], 
+
+    "scene": [
+        "What kind of place does the image appear to be set in? Provide a short answer.",
+        "What sort of location is visible behind the subject in the image?",
+        "Describe the overall setting or background environment shown in the image.",
+        "Describe the backdrop in the image using just a few words.",
+        "What type of scene best captures the context of this image’s environment?",
+        "Analyze the background and describe the kind of place or scenery.",
+        "Look at the background—what type of environment or landscape is it? Keep your response brief.",
+        "Based on the surroundings in the image, how would you describe the setting? Use a short phrase.",
+        "What background setting is portrayed in the image—urban, natural, festive, etc.?",
+        "From the overall visual cues, how would you summarize the background scene?"
+    ],
+
+    "object": [
+        "Identify and briefly describe the key objects present in the image.",
+        "Looking at the image, what objects stand out the most? Keep your answer concise.",
+        "Describe the objects in the image that catch your attention. Provide a short answer.",
+        "What items or entities are the focus in the scene?",
+        "Which objects are clearly visible and seem to play a key role in the image?",
+        "From the visual content, mention distinguishable objects.",
+        "What recognizable items are featured prominently in the image?",
+        "Describe the objects in the picture.",
+        "What physical things catch the viewer’s attention in this image?",
+        "List the main objects that visually stand out in the image."
+    ],
+
+    "facial_expression": [
+        "How would you describe the facial expression of the person in this image? Choose from: happy, surprise, sad, fear, anger, disgust.",
+        "Based on the person’s face, what emotion do you perceive? Options: surprise, sad, fear, anger, disgust, happy.",
+        "Describe the look or expression on the person’s face. Available categories: sad, fear, anger, disgust, happy, surprise.",
+        "What kind of emotional expression is shown on the face in this image? Choose from: fear, anger, disgust, happy, surprise, sad. Choose one option.",
+        "From their facial features, what emotion is being conveyed? Pick one from: anger, disgust, happy, surprise, sad, fear.",
+        "What is the dominant expression visible on the person’s face? Choose the most fitting emotion from: disgust, happy, surprise, sad, fear, anger.",
+        "How does the face appear emotionally in the image? Keep your answer short. ex, happy, surprise, sad, fear, anger, disgust.",
+        "Describe the emotion you see in the facial expression. Be concise. (ex. surprise, sad, fear, anger, disgust, happy).",
+        "What kind of mood is reflected through the person's facial cues? (ex. sad, fear, anger, disgust, happy, surprise)",
+        "Looking at the face, how would you summarize their emotional state? Choose from: disgust, anger, happy, surprise, sad, fear."
+    ],
+
+    "human_action": [
+        "What is the person doing in this image? Briefly describe their action. One phrase only.",
+        "Describe the activity or behavior being performed by the human figure. Use just a few words.",
+        "Looking at the posture or movement, what is the person engaged in? Keep it concise.",
+        "What kind of action or task is the individual carrying out? One action verb or short phrase.",
+        "Based on the image, what behavior is the person demonstrating?",
+        "What does the person seem to be doing? Use a short phrase or verb.",
+        "Describe what the person is doing in a few words. Keep your answer simple.",
+        "How is the person physically interacting with the environment or others?",
+        "What human action is clearly depicted in the image?",
+        "What motion or gesture is being made by the person in this picture?"
+    ],
+    
+    "emotion": [
+        "Based on the image, which emotion is most strongly conveyed? Choose from: {}",
+        "What emotion best represents how this image makes the viewer feel? Options: {}.",
+        "Select the most dominant emotion expressed in the image. Available categories: {}.",
+        "Among the following emotions, which one fits this image best? Choose from: {}.",
+        "What is the primary emotion evoked by this image? Pick one from: {}.",
+        "How does this image most likely make the viewer feel? Choose the most fitting emotion from: {}.",
+        "Which of the following emotions best describes the overall feeling conveyed by this image? {}.",
+        "Looking at this image, what is the strongest emotional impression it gives off? Options: {}.",
+        "What is the most dominant emotional response this image is likely to elicit in viewers? Options: {}.",
+        "From the following list, which emotion best captures the mood or feeling of the image? {}"
+    ]
+
+
+}
