@@ -54,7 +54,7 @@ def save_soft_prompt_embeddings(model, processor, num_special_tokens_in_prefix, 
         {token_str: embedding_tensor(cpu)}.
     """
     if save_ckpt is None:
-        return  # nothing to do
+        return 
 
     # Reconstruct reserved prefix token strings
     prefix_token_strs = [

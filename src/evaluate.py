@@ -13,7 +13,7 @@ from model import (
     build_stage2_model,
     setup_prefix_tokens_and_mask,
 )
-from qwen_vl_utils import process_vision_info  # 경로는 실제 코드에 맞게 조정
+from qwen_vl_utils import process_vision_info  
 
 
 def parse_args():

@@ -43,7 +43,7 @@ def main():
         save_query_fuser_ckpt(spmodel, train_config['output_path'])
 
     # -------------------------------
-    # Stage 2: fuse view prompts + learn emotion prefix prompts
+    # Stage 2: learn soft prompts
     # -------------------------------
     elif args.stage == "stage2":
         # Load emotion classification datasets (train/test)
