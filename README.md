@@ -1,5 +1,7 @@
 # MASP: Multi-Aspect Soft Prompt Tuning for Emotion Reasoning in Vision-Language Models
  
+📢 [News] Our paper has been accepted to AAAI 2026! 
+
 
 ## 🔍 Overview
 
