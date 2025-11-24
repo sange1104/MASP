@@ -14,8 +14,8 @@ Understanding human emotions from an image is a challenging yet essential task f
  
 ## 📦 Setup 
 ```bash
-git clone https://github.com/{id}/masp.git
-cd masp
+git clone https://github.com/sange1104/MASP.git
+cd MASP
 pip install -r requirements.txt
 ```
 
