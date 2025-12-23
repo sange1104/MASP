@@ -38,7 +38,7 @@ def build_trainer(spmodel, processor, train_dataset, train_config):
     # Create trainer for supervised fine-tuning
     return SFTTrainer(
         model=spmodel,
-        train_dataset=train_dataset[:5],
+        train_dataset=train_dataset,
         tokenizer=processor.tokenizer,
         args=sft_args,
         data_collator=lambda examples: collate_fn(examples, processor),
